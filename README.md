@@ -23,7 +23,7 @@
 <div class="flex items-center rounded bg-token-main-surface-secondary px-2 font-sans text-xs text-token-text-secondary"><span class="" data-state="closed"><button class="flex gap-1 items-center py-1"></button></span></div>
 </div>
 </div>
-<div class="overflow-y-auto p-4" dir="ltr"><code class="!whitespace-pre hljs language-plaintext">playwright-test-suite/ ├── features/ # Gherkin feature files for BDD │ ├── checkout.feature # Feature file for the checkout process ├── steps/ # Step definition files for feature steps │ ├── checkout_steps.py # Step definitions for the checkout feature ├── pages/ # Page Object Model classes │ ├── base_page.py # BasePage class for shared methods │ ├── login_page.py # Page class for login functionality │ ├── inventory_page.py # Page class for inventory actions │ ├── cart_page.py # Page class for cart actions │ └── checkout_page.py # Page class for the checkout process ├── tests/ # Optional: Additional test scripts │ └── test_checkout.py # Example standalone test without BDD ├── .github/ # GitHub Actions CI configuration │ └── workflows/ │ └── ci.yml # CI configuration to run tests on push ├── allure-results/ # Directory for storing Allure reports ├── README.md # This README file ├── pytest.ini # pytest configuration file ├── requirements.txt # Python dependencies └── conftest.py # Pytest configuration for Playwright </code></div>
+<div class="overflow-y-auto p-4" dir="ltr"><code class="!whitespace-pre hljs language-plaintext">playwright-test-suite/ ├── features/ #  feature files for BDD │ ├── checkout.feature # Feature file for the checkout process ├── steps/ # Step definition files for feature steps │ ├── checkout_steps.py # Step definitions for the checkout feature ├── pages/ # Page Object Model classes │ ├── base_page.py # BasePage class for shared methods │ ├── login_page.py # Page class for login functionality │ ├── inventory_page.py # Page class for inventory actions │ ├── cart_page.py # Page class for cart actions │ └── checkout_page.py # Page class for the checkout process ├── tests/ # Optional: Additional test scripts │ └── test_checkout.py # Example standalone test without BDD ├── .github/ # GitHub Actions CI configuration │ └── workflows/ │ └── ci.yml # CI configuration to run tests on push ├── allure-results/ # Directory for storing Allure reports ├── README.md # This README file ├── pytest.ini # pytest configuration file ├── requirements.txt # Python dependencies └── conftest.py # Pytest configuration for Playwright </code></div>
 </div>
 <h2>Prerequisites</h2>
 <p>Ensure that the following tools are installed on your system:</p>
@@ -158,13 +158,13 @@
 <h2>Writing Your Own Feature Files</h2>
 <h3>Example Feature File (<code>checkout.feature</code>):</h3>
 <div class="dark bg-gray-950 contain-inline-size rounded-md border-[0.5px] border-token-border-medium relative">
-<div class="flex items-center text-token-text-secondary bg-token-main-surface-secondary px-4 py-2 text-xs font-sans justify-between rounded-t-md h-9">gherkin</div>
+<div class="flex items-center text-token-text-secondary bg-token-main-surface-secondary px-4 py-2 text-xs font-sans justify-between rounded-t-md h-9"></div>
 <div class="sticky top-9 md:top-[5.75rem]">
 <div class="absolute bottom-0 right-2 flex h-9 items-center">
 <div class="flex items-center rounded bg-token-main-surface-secondary px-2 font-sans text-xs text-token-text-secondary"><span class="" data-state="closed"><button class="flex gap-1 items-center py-1"></button></span></div>
 </div>
 </div>
-<div class="overflow-y-auto p-4" dir="ltr"><code class="!whitespace-pre hljs language-gherkin">Feature: Checkout an item Scenario: Checkout a single item Given the user is on the login page When the user logs in with valid credentials And the user adds an item to the cart And the user proceeds to the checkout page And the user fills in the checkout details Then the user should complete the checkout successfully </code></div>
+<div class="overflow-y-auto p-4" dir="ltr"><code class="!whitespace-pre hljs language-">Feature: Checkout an item Scenario: Checkout a single item Given the user is on the login page When the user logs in with valid credentials And the user adds an item to the cart And the user proceeds to the checkout page And the user fills in the checkout details Then the user should complete the checkout successfully </code></div>
 </div>
 <p>Place all feature files in the <code>features/</code> directory.</p>
 <h3>Step Definitions</h3>
