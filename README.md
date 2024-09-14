@@ -15,7 +15,7 @@ Verifying cart contents
 Completing the checkout process
 Project Structure
 plaintext
-Copy code
+
 playwright-test-suite/
 ├── features/                # Gherkin feature files for BDD
 │   ├── checkout.feature      # Feature file for the checkout process
@@ -45,70 +45,68 @@ Node.js (for Playwright dependencies)
 pip (Python package manager)
 Install Playwright’s browser binaries:
 
-bash
-Copy code
+
+
 playwright install
 Installation
 Clone the repository:
 
-bash
-Copy code
+
+
 git clone <repository-url>
 cd playwright-test-suite
 Set up a virtual environment:
 
-On macOS/Linux:
 
-bash
-Copy code
+#On macOS/Linux:
 python3 -m venv venv
 source venv/bin/activate
-On Windows:
 
-bash
-Copy code
+
+#On Windows:
 python -m venv venv
 venv\Scripts\activate
-Install dependencies:
 
-bash
-Copy code
+
+#Install dependencies:
+
 pip install -r requirements.txt
 Install Playwright browsers:
 
-bash
-Copy code
-playwright install
+
+
+#playwright install
+
 Running the Test Suite
 Run all tests with BDD:
-To run the full test suite using BDD and Cucumber (via pytest-bdd):
 
-bash
-Copy code
+
+#To run the full test suite using BDD and Cucumber (via pytest-bdd):
+
 pytest -v
+
+
 Run specific feature file:
 To run a specific feature file, use:
 
-bash
-Copy code
 pytest -v features/checkout.feature
-Run with Allure Reporting:
+
+
+#Run with Allure Reporting:
 To generate an Allure report:
 
 Run the tests and generate the report data:
 
-bash
-Copy code
 pytest --alluredir=allure-results
-Serve the report in a local web server:
 
-bash
-Copy code
+#Serve the report in a local web server:
 allure serve allure-results
-Writing Your Own Feature Files
+
+
+#Writing Your Own Feature Files
 Example Feature File (checkout.feature):
 gherkin
-Copy code
+
 Feature: Checkout an item
 
   Scenario: Checkout a single item
@@ -120,11 +118,11 @@ Feature: Checkout an item
     Then the user should complete the checkout successfully
 Place all feature files in the features/ directory.
 
-Step Definitions
+#Step Definitions
 The corresponding step definitions should be placed in the steps/ directory. Each step in the feature file will map to a Python function in a step definition file (e.g., checkout_steps.py).
 
-python
-Copy code
+
+
 import pytest
 from pytest_bdd import given, when, then
 from pages.login_page import LoginPage
@@ -167,7 +165,7 @@ def proceed_to_checkout(browser):
 @when("the user fills in the checkout details")
 def fill_checkout_details(browser):
     checkout_page = CheckoutPage(browser)
-    checkout_page.complete_checkout("John", "Doe", "12345")
+    checkout_page.complete_checkout("Easir", "Maruf", "1234")
 
 @then("the user should complete the checkout successfully")
 def verify_checkout_complete(browser):
@@ -182,7 +180,7 @@ Edit .github/workflows/ci.yml to adjust your Playwright setup or dependencies if
 The workflow will automatically run tests for every push or pull request.
 Sample CI Configuration (ci.yml):
 yaml
-Copy code
+
 name: Playwright Tests
 
 on:
@@ -218,24 +216,27 @@ jobs:
       with:
         name: allure-results
         path: allure-results
-Running Tests in Parallel
+
+
+
+#Running Tests in Parallel
 To run tests in parallel, you can use the pytest-xdist plugin:
 
-bash
-Copy code
+
+
 pip install pytest-xdist
 pytest -n <number_of_processes>
 For example:
 
-bash
-Copy code
+
+
 pytest -n 4  # Runs the tests in parallel using 4 processes
 Code Quality (Optional)
 For code quality, you can integrate a linter like ESLint for JavaScript/TypeScript files or flake8 for Python files.
 
-Example .eslintrc.js configuration for Playwright projects:
-javascript
-Copy code
+#Example .eslintrc.js configuration for Playwright projects:
+
+
 module.exports = {
     "env": {
         "browser": true,
