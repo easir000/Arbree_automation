@@ -17,7 +17,9 @@
 </ol>
 <hr>
 <h2>Project Structure</h2>
-<pre><div><div>plaintext</div><div><div><div><button><svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M7 5C7 3.34315 8.34315 2 10 2H19C20.6569 2 22 3.34315 22 5V14C22 15.6569 20.6569 17 19 17H17V19C17 20.6569 15.6569 22 14 22H5C3.34315 22 2 20.6569 2 19V10C2 8.34315 3.34315 7 5 7H7V5ZM9 7H14C15.6569 7 17 8.34315 17 10V15H19C19.5523 15 20 14.5523 20 14V5C20 4.44772 19.5523 4 19 4H10C9.44772 4 9 4.44772 9 5V7ZM5 9C4.44772 9 4 9.44772 4 10V19C4 19.5523 4.44772 20 5 20H14C14.5523 20 15 19.5523 15 19V10C15 9.44772 14.5523 9 14 9H5Z" fill="currentColor"></path></svg>Copy code</button></div></div></div><div><code>playwright-test-suite/
+<pre><div><div>
+</div><div><div>
+</div></div><div><code>playwright-test-suite/
 ├── features/                # Gherkin feature files for BDD
 │   ├── checkout.feature      # Feature file for the checkout process
 ├── steps/                   # Step definition files for feature steps
@@ -49,47 +51,67 @@
 </ul>
 <h3>Install Playwright Browsers</h3>
 <p>Before running the tests, install the Playwright browsers:</p>
-<pre><div><div>bash</div><div><div><div><button><svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M7 5C7 3.34315 8.34315 2 10 2H19C20.6569 2 22 3.34315 22 5V14C22 15.6569 20.6569 17 19 17H17V19C17 20.6569 15.6569 22 14 22H5C3.34315 22 2 20.6569 2 19V10C2 8.34315 3.34315 7 5 7H7V5ZM9 7H14C15.6569 7 17 8.34315 17 10V15H19C19.5523 15 20 14.5523 20 14V5C20 4.44772 19.5523 4 19 4H10C9.44772 4 9 4.44772 9 5V7ZM5 9C4.44772 9 4 9.44772 4 10V19C4 19.5523 4.44772 20 5 20H14C14.5523 20 15 19.5523 15 19V10C15 9.44772 14.5523 9 14 9H5Z" fill="currentColor"></path></svg>Copy code</button></div></div></div><div><code>playwright install
+<pre><div><div>
+</div><div><div>
+</div></div><div><code>playwright install
 </code></div></div></pre>
 <hr>
 <h2>Installation</h2>
 <h3>Step 1: Clone the Repository</h3>
-<pre><div><div>bash</div><div><div><div><button><svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M7 5C7 3.34315 8.34315 2 10 2H19C20.6569 2 22 3.34315 22 5V14C22 15.6569 20.6569 17 19 17H17V19C17 20.6569 15.6569 22 14 22H5C3.34315 22 2 20.6569 2 19V10C2 8.34315 3.34315 7 5 7H7V5ZM9 7H14C15.6569 7 17 8.34315 17 10V15H19C19.5523 15 20 14.5523 20 14V5C20 4.44772 19.5523 4 19 4H10C9.44772 4 9 4.44772 9 5V7ZM5 9C4.44772 9 4 9.44772 4 10V19C4 19.5523 4.44772 20 5 20H14C14.5523 20 15 19.5523 15 19V10C15 9.44772 14.5523 9 14 9H5Z" fill="currentColor"></path></svg>Copy code</button></div></div></div><div><code>git clone &lt;repository-url&gt;
+<pre><div><div>
+</div><div><div>
+</div></div><div><code>git clone &lt;repository-url&gt;
 cd playwright-test-suite
 </code></div></div></pre>
 <h3>Step 2: Set Up a Virtual Environment</h3>
 <h4>On macOS/Linux:</h4>
-<pre><div><div>bash</div><div><div><div><button><svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M7 5C7 3.34315 8.34315 2 10 2H19C20.6569 2 22 3.34315 22 5V14C22 15.6569 20.6569 17 19 17H17V19C17 20.6569 15.6569 22 14 22H5C3.34315 22 2 20.6569 2 19V10C2 8.34315 3.34315 7 5 7H7V5ZM9 7H14C15.6569 7 17 8.34315 17 10V15H19C19.5523 15 20 14.5523 20 14V5C20 4.44772 19.5523 4 19 4H10C9.44772 4 9 4.44772 9 5V7ZM5 9C4.44772 9 4 9.44772 4 10V19C4 19.5523 4.44772 20 5 20H14C14.5523 20 15 19.5523 15 19V10C15 9.44772 14.5523 9 14 9H5Z" fill="currentColor"></path></svg>Copy code</button></div></div></div><div><code>python3 -m venv venv
+<pre><div><div>
+</div><div><div>
+</div></div><div><code>python3 -m venv venv
 source venv/bin/activate
 </code></div></div></pre>
 <h4>On Windows:</h4>
-<pre><div><div>bash</div><div><div><div><button><svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M7 5C7 3.34315 8.34315 2 10 2H19C20.6569 2 22 3.34315 22 5V14C22 15.6569 20.6569 17 19 17H17V19C17 20.6569 15.6569 22 14 22H5C3.34315 22 2 20.6569 2 19V10C2 8.34315 3.34315 7 5 7H7V5ZM9 7H14C15.6569 7 17 8.34315 17 10V15H19C19.5523 15 20 14.5523 20 14V5C20 4.44772 19.5523 4 19 4H10C9.44772 4 9 4.44772 9 5V7ZM5 9C4.44772 9 4 9.44772 4 10V19C4 19.5523 4.44772 20 5 20H14C14.5523 20 15 19.5523 15 19V10C15 9.44772 14.5523 9 14 9H5Z" fill="currentColor"></path></svg>Copy code</button></div></div></div><div><code>python -m venv venv
+<pre><div><div>
+</div><div><div>
+</div></div><div><code>python -m venv venv
 venv\Scripts\activate
 </code></div></div></pre>
 <h3>Step 3: Install Dependencies</h3>
-<pre><div><div>bash</div><div><div><div><button><svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M7 5C7 3.34315 8.34315 2 10 2H19C20.6569 2 22 3.34315 22 5V14C22 15.6569 20.6569 17 19 17H17V19C17 20.6569 15.6569 22 14 22H5C3.34315 22 2 20.6569 2 19V10C2 8.34315 3.34315 7 5 7H7V5ZM9 7H14C15.6569 7 17 8.34315 17 10V15H19C19.5523 15 20 14.5523 20 14V5C20 4.44772 19.5523 4 19 4H10C9.44772 4 9 4.44772 9 5V7ZM5 9C4.44772 9 4 9.44772 4 10V19C4 19.5523 4.44772 20 5 20H14C14.5523 20 15 19.5523 15 19V10C15 9.44772 14.5523 9 14 9H5Z" fill="currentColor"></path></svg>Copy code</button></div></div></div><div><code>pip install -r requirements.txt
+<pre><div><div>
+</div><div><div>
+</div></div><div><code>pip install -r requirements.txt
 </code></div></div></pre>
 <hr>
 <h2>Running the Test Suite</h2>
 <h3>Run All Tests with BDD</h3>
 <p>To run the full test suite using BDD with pytest-bdd:</p>
-<pre><div><div>bash</div><div><div><div><button><svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M7 5C7 3.34315 8.34315 2 10 2H19C20.6569 2 22 3.34315 22 5V14C22 15.6569 20.6569 17 19 17H17V19C17 20.6569 15.6569 22 14 22H5C3.34315 22 2 20.6569 2 19V10C2 8.34315 3.34315 7 5 7H7V5ZM9 7H14C15.6569 7 17 8.34315 17 10V15H19C19.5523 15 20 14.5523 20 14V5C20 4.44772 19.5523 4 19 4H10C9.44772 4 9 4.44772 9 5V7ZM5 9C4.44772 9 4 9.44772 4 10V19C4 19.5523 4.44772 20 5 20H14C14.5523 20 15 19.5523 15 19V10C15 9.44772 14.5523 9 14 9H5Z" fill="currentColor"></path></svg>Copy code</button></div></div></div><div><code>pytest -v
+<pre><div><div>
+</div><div><div>
+</div></div><div><code>pytest -v
 </code></div></div></pre>
 <h3>Run a Specific Feature File</h3>
 <p>To run a specific feature file (e.g., <code>checkout.feature</code>):</p>
-<pre><div><div>bash</div><div><div><div><button><svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M7 5C7 3.34315 8.34315 2 10 2H19C20.6569 2 22 3.34315 22 5V14C22 15.6569 20.6569 17 19 17H17V19C17 20.6569 15.6569 22 14 22H5C3.34315 22 2 20.6569 2 19V10C2 8.34315 3.34315 7 5 7H7V5ZM9 7H14C15.6569 7 17 8.34315 17 10V15H19C19.5523 15 20 14.5523 20 14V5C20 4.44772 19.5523 4 19 4H10C9.44772 4 9 4.44772 9 5V7ZM5 9C4.44772 9 4 9.44772 4 10V19C4 19.5523 4.44772 20 5 20H14C14.5523 20 15 19.5523 15 19V10C15 9.44772 14.5523 9 14 9H5Z" fill="currentColor"></path></svg>Copy code</button></div></div></div><div><code>pytest -v features/checkout.feature
+<pre><div><div>
+</div><div><div>
+</div></div><div><code>pytest -v features/checkout.feature
 </code></div></div></pre>
 <h3>Run with Allure Reporting</h3>
 <p>To generate an Allure report, first run the tests and generate report data:</p>
-<pre><div><div>bash</div><div><div><div><button><svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M7 5C7 3.34315 8.34315 2 10 2H19C20.6569 2 22 3.34315 22 5V14C22 15.6569 20.6569 17 19 17H17V19C17 20.6569 15.6569 22 14 22H5C3.34315 22 2 20.6569 2 19V10C2 8.34315 3.34315 7 5 7H7V5ZM9 7H14C15.6569 7 17 8.34315 17 10V15H19C19.5523 15 20 14.5523 20 14V5C20 4.44772 19.5523 4 19 4H10C9.44772 4 9 4.44772 9 5V7ZM5 9C4.44772 9 4 9.44772 4 10V19C4 19.5523 4.44772 20 5 20H14C14.5523 20 15 19.5523 15 19V10C15 9.44772 14.5523 9 14 9H5Z" fill="currentColor"></path></svg>Copy code</button></div></div></div><div><code>pytest --alluredir=allure-results
+<pre><div><div>
+</div><div><div>
+</div></div><div><code>pytest --alluredir=allure-results
 </code></div></div></pre>
 <p>Then serve the report locally:</p>
-<pre><div><div>bash</div><div><div><div><button><svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M7 5C7 3.34315 8.34315 2 10 2H19C20.6569 2 22 3.34315 22 5V14C22 15.6569 20.6569 17 19 17H17V19C17 20.6569 15.6569 22 14 22H5C3.34315 22 2 20.6569 2 19V10C2 8.34315 3.34315 7 5 7H7V5ZM9 7H14C15.6569 7 17 8.34315 17 10V15H19C19.5523 15 20 14.5523 20 14V5C20 4.44772 19.5523 4 19 4H10C9.44772 4 9 4.44772 9 5V7ZM5 9C4.44772 9 4 9.44772 4 10V19C4 19.5523 4.44772 20 5 20H14C14.5523 20 15 19.5523 15 19V10C15 9.44772 14.5523 9 14 9H5Z" fill="currentColor"></path></svg>Copy code</button></div></div></div><div><code>allure serve allure-results
+<pre><div><div>
+</div><div><div>
+</div></div><div><code>allure serve allure-results
 </code></div></div></pre>
 <hr>
 <h2>Writing Your Own Feature Files</h2>
 <h3>Example Feature File (<code>checkout.feature</code>):</h3>
-<pre><div><div>gherkin</div><div><div><div><button><svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M7 5C7 3.34315 8.34315 2 10 2H19C20.6569 2 22 3.34315 22 5V14C22 15.6569 20.6569 17 19 17H17V19C17 20.6569 15.6569 22 14 22H5C3.34315 22 2 20.6569 2 19V10C2 8.34315 3.34315 7 5 7H7V5ZM9 7H14C15.6569 7 17 8.34315 17 10V15H19C19.5523 15 20 14.5523 20 14V5C20 4.44772 19.5523 4 19 4H10C9.44772 4 9 4.44772 9 5V7ZM5 9C4.44772 9 4 9.44772 4 10V19C4 19.5523 4.44772 20 5 20H14C14.5523 20 15 19.5523 15 19V10C15 9.44772 14.5523 9 14 9H5Z" fill="currentColor"></path></svg>Copy code</button></div></div></div><div><code>Feature: Checkout an item
+<pre><div><div>
+</div><div><div>
+</div></div><div><code>Feature: Checkout an item
 
   Scenario: Checkout a single item
     Given the user is on the login page
@@ -104,7 +126,9 @@ venv\Scripts\activate
 <h2>Step Definitions</h2>
 <p>The step definitions should be placed in the <code>steps/</code> directory. Each step in the feature file maps to a Python function in the step definition file (e.g., <code>checkout_steps.py</code>).</p>
 <h3>Example Step Definitions (<code>checkout_steps.py</code>):</h3>
-<pre><div><div>python</div><div><div><div><button><svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M7 5C7 3.34315 8.34315 2 10 2H19C20.6569 2 22 3.34315 22 5V14C22 15.6569 20.6569 17 19 17H17V19C17 20.6569 15.6569 22 14 22H5C3.34315 22 2 20.6569 2 19V10C2 8.34315 3.34315 7 5 7H7V5ZM9 7H14C15.6569 7 17 8.34315 17 10V15H19C19.5523 15 20 14.5523 20 14V5C20 4.44772 19.5523 4 19 4H10C9.44772 4 9 4.44772 9 5V7ZM5 9C4.44772 9 4 9.44772 4 10V19C4 19.5523 4.44772 20 5 20H14C14.5523 20 15 19.5523 15 19V10C15 9.44772 14.5523 9 14 9H5Z" fill="currentColor"></path></svg>Copy code</button></div></div></div><div><code>import pytest
+<pre><div><div>
+</div><div><div>
+</div></div><div><code>import pytest
 from pytest_bdd import given, when, then
 from pages.login_page import LoginPage
 from pages.inventory_page import InventoryPage
@@ -144,7 +168,7 @@ def proceed_to_checkout(browser):
 @when(&quot;the user fills in the checkout details&quot;)
 def fill_checkout_details(browser):
     checkout_page = CheckoutPage(browser)
-    checkout_page.complete_checkout(&quot;John&quot;, &quot;Doe&quot;, &quot;12345&quot;)
+    checkout_page.complete_checkout(&quot;Easir&quot;, &quot;Maruf&quot;, &quot;1234&quot;)
 
 @then(&quot;the user should complete the checkout successfully&quot;)
 def verify_checkout_complete(browser):
@@ -155,7 +179,9 @@ def verify_checkout_complete(browser):
 <h3>GitHub Actions Configuration</h3>
 <p>The project includes a GitHub Actions configuration to run tests automatically on every push or pull request.</p>
 <h4>Sample CI Configuration (<code>ci.yml</code>):</h4>
-<pre><div><div>yaml</div><div><div><div><button><svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M7 5C7 3.34315 8.34315 2 10 2H19C20.6569 2 22 3.34315 22 5V14C22 15.6569 20.6569 17 19 17H17V19C17 20.6569 15.6569 22 14 22H5C3.34315 22 2 20.6569 2 19V10C2 8.34315 3.34315 7 5 7H7V5ZM9 7H14C15.6569 7 17 8.34315 17 10V15H19C19.5523 15 20 14.5523 20 14V5C20 4.44772 19.5523 4 19 4H10C9.44772 4 9 4.44772 9 5V7ZM5 9C4.44772 9 4 9.44772 4 10V19C4 19.5523 4.44772 20 5 20H14C14.5523 20 15 19.5523 15 19V10C15 9.44772 14.5523 9 14 9H5Z" fill="currentColor"></path></svg>Copy code</button></div></div></div><div><code>name: Playwright Tests
+<pre><div><div>
+</div><div><div>
+</div></div><div><code>name: Playwright Tests
 
 on:
   push:
@@ -195,13 +221,19 @@ jobs:
 <h2>Running Tests in Parallel</h2>
 <p>You can run tests in parallel using the <code>pytest-xdist</code> plugin.</p>
 <h3>Install the Plugin:</h3>
-<pre><div><div>bash</div><div><div><div><button><svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M7 5C7 3.34315 8.34315 2 10 2H19C20.6569 2 22 3.34315 22 5V14C22 15.6569 20.6569 17 19 17H17V19C17 20.6569 15.6569 22 14 22H5C3.34315 22 2 20.6569 2 19V10C2 8.34315 3.34315 7 5 7H7V5ZM9 7H14C15.6569 7 17 8.34315 17 10V15H19C19.5523 15 20 14.5523 20 14V5C20 4.44772 19.5523 4 19 4H10C9.44772 4 9 4.44772 9 5V7ZM5 9C4.44772 9 4 9.44772 4 10V19C4 19.5523 4.44772 20 5 20H14C14.5523 20 15 19.5523 15 19V10C15 9.44772 14.5523 9 14 9H5Z" fill="currentColor"></path></svg>Copy code</button></div></div></div><div><code>pip install pytest-xdist
+<pre><div><div>
+</div><div><div>
+</div></div><div><code>pip install pytest-xdist
 </code></div></div></pre>
 <h3>Run Tests in Parallel:</h3>
-<pre><div><div>bash</div><div><div><div><button><svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M7 5C7 3.34315 8.34315 2 10 2H19C20.6569 2 22 3.34315 22 5V14C22 15.6569 20.6569 17 19 17H17V19C17 20.6569 15.6569 22 14 22H5C3.34315 22 2 20.6569 2 19V10C2 8.34315 3.34315 7 5 7H7V5ZM9 7H14C15.6569 7 17 8.34315 17 10V15H19C19.5523 15 20 14.5523 20 14V5C20 4.44772 19.5523 4 19 4H10C9.44772 4 9 4.44772 9 5V7ZM5 9C4.44772 9 4 9.44772 4 10V19C4 19.5523 4.44772 20 5 20H14C14.5523 20 15 19.5523 15 19V10C15 9.44772 14.5523 9 14 9H5Z" fill="currentColor"></path></svg>Copy code</button></div></div></div><div><code>pytest -n &lt;number_of_processes&gt;
+<pre><div><div>
+</div><div><div>
+</div></div><div><code>pytest -n &lt;number_of_processes&gt;
 </code></div></div></pre>
 <p>For example, to run 4 parallel processes:</p>
-<pre><div><div>bash</div><div><div><div><button><svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M7 5C7 3.34315 8.34315 2 10 2H19C20.6569 2 22 3.34315 22 5V14C22 15.6569 20.6569 17 19 17H17V19C17 20.6569 15.6569 22 14 22H5C3.34315 22 2 20.6569 2 19V10C2 8.34315 3.34315 7 5 7H7V5ZM9 7H14C15.6569 7 17 8.34315 17 10V15H19C19.5523 15 20 14.5523 20 14V5C20 4.44772 19.5523 4 19 4H10C9.44772 4 9 4.44772 9 5V7ZM5 9C4.44772 9 4 9.44772 4 10V19C4 19.5523 4.44772 20 5 20H14C14.5523 20 15 19.5523 15 19V10C15 9.44772 14.5523 9 14 9H5Z" fill="currentColor"></path></svg>Copy code</button></div></div></div><div><code>pytest -n 4
+<pre><div><div>
+</div><div><div>
+</div></div><div><code>pytest -n 4
 </code></div></div></pre>
 <hr>
 <h2>Code Quality (Optional)</h2>
