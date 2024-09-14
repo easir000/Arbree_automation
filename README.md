@@ -188,7 +188,7 @@
 </ol>
 <h3>Sample CI Configuration (<code>ci.yml</code>):</h3>
 <div class="dark bg-gray-950 contain-inline-size rounded-md border-[0.5px] border-token-border-medium relative">
-<div class="flex items-center text-token-text-secondary bg-token-main-surface-secondary px-4 py-2 text-xs font-sans justify-between rounded-t-md h-9">yaml</div>
+<div class="flex items-center text-token-text-secondary bg-token-main-surface-secondary px-4 py-2 text-xs font-sans justify-between rounded-t-md h-9"></div>
 <div class="sticky top-9 md:top-[5.75rem]">
 <div class="absolute bottom-0 right-2 flex h-9 items-center">
 <div class="flex items-center rounded bg-token-main-surface-secondary px-2 font-sans text-xs text-token-text-secondary"><span class="" data-state="closed"><button class="flex gap-1 items-center py-1"></button></span></div>
