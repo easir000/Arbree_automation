@@ -1,0 +1,16 @@
+{
+    "uuid": "b2ea8d9d-60e7-4924-bbb8-b39b210c125f",
+    "children": [
+        "ab341029-074e-495a-8e7f-cc5ce3b9e1ca"
+    ],
+    "befores": [
+        {
+            "name": "delete_output_dir",
+            "status": "passed",
+            "start": 1726250989250,
+            "stop": 1726250989250
+        }
+    ],
+    "start": 1726250989250,
+    "stop": 1726250997358
+}

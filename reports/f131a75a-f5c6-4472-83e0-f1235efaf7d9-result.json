@@ -1,0 +1,40 @@
+{
+    "name": "test_checkout_item",
+    "status": "passed",
+    "start": 1726251117945,
+    "stop": 1726251120829,
+    "uuid": "7fd6b7f4-2d7f-4349-a13f-2fac7360a085",
+    "historyId": "bc201bd1697c9c712ad942dfdbc24706",
+    "testCaseId": "bc201bd1697c9c712ad942dfdbc24706",
+    "fullName": "tests.test_checkout#test_checkout_item",
+    "labels": [
+        {
+            "name": "parentSuite",
+            "value": "tests"
+        },
+        {
+            "name": "suite",
+            "value": "test_checkout"
+        },
+        {
+            "name": "host",
+            "value": "Easir"
+        },
+        {
+            "name": "thread",
+            "value": "15140-MainThread"
+        },
+        {
+            "name": "framework",
+            "value": "pytest"
+        },
+        {
+            "name": "language",
+            "value": "cpython3"
+        },
+        {
+            "name": "package",
+            "value": "tests.test_checkout"
+        }
+    ]
+}
