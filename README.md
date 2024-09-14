@@ -39,30 +39,27 @@
 			</ol>
 				<body>
 		<p>Project Structure 
-plaintext 
-Copy code 
-playwright-test-suite/ 
-├── features/                # Gherkin feature files for BDD 
-│   ├── checkout.feature      # Feature file for the checkout process 
-├── steps/                   # Step definition files for feature steps 
-│   ├── checkout_steps.py     # Step definitions for the checkout feature 
-├── pages/                   # Page Object Model classes 
-│   ├── base_page.py          # BasePage class for shared methods 
-│   ├── login_page.py         # Page class for login functionality 
-│   ├── inventory_page.py     # Page class for inventory actions 
-│   ├── cart_page.py          # Page class for cart actions 
-│   └── checkout_page.py      # Page class for the checkout process 
-├── tests/                   # Optional: Additional test scripts 
-│   └── test_checkout.py      # Example standalone test without BDD 
-├── .github/                 # GitHub Actions CI configuration 
-│   └── workflows/ 
-│       └── ci.yml            # CI configuration to run tests on push 
-├── allure-results/           # Directory for storing Allure reports 
-├── README.md                 # This README file 
-├── pytest.ini                # pytest configuration file 
-├── requirements.txt          # Python dependencies 
-└── conftest.py               # Pytest configuration for Playwright 
-Prerequisites</p>
+playwright-test-suite/
+├── features/ # Gherkin feature files for BDD
+│ ├── checkout.feature # Feature file for the checkout process
+├── steps/ # Step definition files for feature steps
+│ ├── checkout_steps.py # Step definitions for the checkout feature
+├── pages/ # Page Object Model classes
+│ ├── base_page.py # BasePage class for shared methods
+│ ├── login_page.py # Page class for login functionality
+│ ├── inventory_page.py # Page class for inventory actions
+│ ├── cart_page.py # Page class for cart actions
+│ └── checkout_page.py # Page class for the checkout process
+├── tests/ # Optional: Additional test scripts
+│ └── test_checkout.py # Example standalone test without BDD
+├── .github/ # GitHub Actions CI configuration
+│ └── workflows/
+│ └── ci.yml # CI configuration to run tests on push
+├── allure-results/ # Directory for storing Allure reports
+├── README.md # This README file
+├── pytest.ini # pytest configuration file
+├── requirements.txt # Python dependencies
+└── conftest.py # Pytest configuration for Playwright
 	</body>
 			<p>Ensure that the following tools are installed on your system:</p>
 			<ul>
