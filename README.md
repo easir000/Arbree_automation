@@ -170,7 +170,7 @@
 <h3>Step Definitions</h3>
 <p>The corresponding step definitions should be placed in the <code>steps/</code> directory. Each step in the feature file will map to a Python function in a step definition file (e.g., <code>checkout_steps.py</code>).</p>
 <div class="dark bg-gray-950 contain-inline-size rounded-md border-[0.5px] border-token-border-medium relative">
-<div class="flex items-center text-token-text-secondary bg-token-main-surface-secondary px-4 py-2 text-xs font-sans justify-between rounded-t-md h-9">python</div>
+<div class="flex items-center text-token-text-secondary bg-token-main-surface-secondary px-4 py-2 text-xs font-sans justify-between rounded-t-md h-9"></div>
 <div class="sticky top-9 md:top-[5.75rem]">
 <div class="absolute bottom-0 right-2 flex h-9 items-center">
 <div class="flex items-center rounded bg-token-main-surface-secondary px-2 font-sans text-xs text-token-text-secondary"><span class="" data-state="closed"><button class="flex gap-1 items-center py-1"></button></span></div>
