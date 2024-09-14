@@ -1,240 +1,240 @@
-<div>
-<div>Playwright E2E Test Suite with BDD (Cucumber)</div>
-<div>Project Overview</div>
-<div>This project is an end-to-end test automation suite for the "SauceDemo" website (https://www.saucedemo.com/v1/), developed using Playwright in Python. The test suite follows the Page Object Model (POM) design pattern and integrates Behavioral Driven Development (BDD) with Cucumber using pytest-bdd.</div>
-<br />
-<div>Key features include:</div>
-<br />
-<div>Page Object Model (POM) for scalable and maintainable test automation.</div>
-<div>Behavior Driven Development (BDD) using pytest-bdd for human-readable tests.</div>
-<div>Integration with GitHub Actions for Continuous Integration (CI).</div>
-<div>Allure Reporting for test results.</div>
-<div>Scenarios Covered:</div>
-<div>User login</div>
-<div>Adding items to the cart</div>
-<div>Verifying cart contents</div>
-<div>Completing the checkout process</div>
-<div>Project Structure</div>
-<div>plaintext</div>
-<br />
-<div>playwright-test-suite/</div>
-<div>├── features/ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;# Gherkin feature files for BDD</div>
-<div>│ &nbsp; ├── checkout.feature &nbsp; &nbsp; &nbsp;# Feature file for the checkout process</div>
-<div>├── steps/ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; # Step definition files for feature steps</div>
-<div>│ &nbsp; ├── checkout_steps.py &nbsp; &nbsp; # Step definitions for the checkout feature</div>
-<div>├── pages/ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; # Page Object Model classes</div>
-<div>│ &nbsp; ├── base_page.py &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;# BasePage class for shared methods</div>
-<div>│ &nbsp; ├── login_page.py &nbsp; &nbsp; &nbsp; &nbsp; # Page class for login functionality</div>
-<div>│ &nbsp; ├── inventory_page.py &nbsp; &nbsp; # Page class for inventory actions</div>
-<div>│ &nbsp; ├── cart_page.py &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;# Page class for cart actions</div>
-<div>│ &nbsp; └── checkout_page.py &nbsp; &nbsp; &nbsp;# Page class for the checkout process</div>
-<div>├── tests/ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; # Optional: Additional test scripts</div>
-<div>│ &nbsp; └── test_checkout.py &nbsp; &nbsp; &nbsp;# Example standalone test without BDD</div>
-<div>├── .github/ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; # GitHub Actions CI configuration</div>
-<div>│ &nbsp; └── workflows/</div>
-<div>│ &nbsp; &nbsp; &nbsp; └── ci.yml &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;# CI configuration to run tests on push</div>
-<div>├── allure-results/ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; # Directory for storing Allure reports</div>
-<div>├── README.md &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; # This README file</div>
-<div>├── pytest.ini &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;# pytest configuration file</div>
-<div>├── requirements.txt &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;# Python dependencies</div>
-<div>└── conftest.py &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; # Pytest configuration for Playwright</div>
-<div>Prerequisites</div>
-<div>Ensure that the following tools are installed on your system:</div>
-<br />
-<div>Python 3.7+</div>
-<div>Node.js (for Playwright dependencies)</div>
-<div>pip (Python package manager)</div>
-<div>Install Playwright&rsquo;s browser binaries:</div>
-<br /><br /><br />
-<div>playwright install</div>
-<div>Installation</div>
-<div>Clone the repository:</div>
-<br /><br /><br />
-<div>git clone &lt;repository-url&gt;</div>
-<div>cd playwright-test-suite</div>
-<div>Set up a virtual environment:</div>
-<br /><br />
-<div>#On macOS/Linux:</div>
-<div>python3 -m venv venv</div>
-<div>source venv/bin/activate</div>
-<br /><br />
-<div>#On Windows:</div>
-<div>python -m venv venv</div>
-<div>venv\Scripts\activate</div>
-<br /><br />
-<div>#Install dependencies:</div>
-<br />
-<div>pip install -r requirements.txt</div>
-<div>Install Playwright browsers:</div>
-<br /><br /><br />
-<div>#playwright install</div>
-<br />
-<div>Running the Test Suite</div>
-<div>Run all tests with BDD:</div>
-<br /><br />
-<div>#To run the full test suite using BDD and Cucumber (via pytest-bdd):</div>
-<br />
-<div>pytest -v</div>
-<br /><br />
-<div>Run specific feature file:</div>
-<div>To run a specific feature file, use:</div>
-<br />
-<div>pytest -v features/checkout.feature</div>
-<br /><br />
-<div>#Run with Allure Reporting:</div>
-<div>To generate an Allure report:</div>
-<br />
-<div>Run the tests and generate the report data:</div>
-<br />
-<div>pytest --alluredir=allure-results</div>
-<br />
-<div>#Serve the report in a local web server:</div>
-<div>allure serve allure-results</div>
-<br /><br />
-<div>#Writing Your Own Feature Files</div>
-<div>Example Feature File (checkout.feature):</div>
-<div>gherkin</div>
-<br />
-<div>Feature: Checkout an item</div>
-<br />
-<div>&nbsp; Scenario: Checkout a single item</div>
-<div>&nbsp; &nbsp; Given the user is on the login page</div>
-<div>&nbsp; &nbsp; When the user logs in with valid credentials</div>
-<div>&nbsp; &nbsp; And the user adds an item to the cart</div>
-<div>&nbsp; &nbsp; And the user proceeds to the checkout page</div>
-<div>&nbsp; &nbsp; And the user fills in the checkout details</div>
-<div>&nbsp; &nbsp; Then the user should complete the checkout successfully</div>
-<div>Place all feature files in the features/ directory.</div>
-<br />
-<div>#Step Definitions</div>
-<div>The corresponding step definitions should be placed in the steps/ directory. Each step in the feature file will map to a Python function in a step definition file (e.g., checkout_steps.py).</div>
-<br /><br /><br />
-<div>import pytest</div>
-<div>from pytest_bdd import given, when, then</div>
-<div>from pages.login_page import LoginPage</div>
-<div>from pages.inventory_page import InventoryPage</div>
-<div>from pages.cart_page import CartPage</div>
-<div>from pages.checkout_page import CheckoutPage</div>
-<br />
-<div># Fixture for browser setup</div>
-<div>@pytest.fixture</div>
-<div>def browser(playwright):</div>
-<div>&nbsp; &nbsp; browser = playwright.chromium.launch(headless=False)</div>
-<div>&nbsp; &nbsp; context = browser.new_context()</div>
-<div>&nbsp; &nbsp; page = context.new_page()</div>
-<div>&nbsp; &nbsp; yield page</div>
-<div>&nbsp; &nbsp; context.close()</div>
-<div>&nbsp; &nbsp; browser.close()</div>
-<br />
-<div># Step Definitions</div>
-<div>@given("the user is on the login page")</div>
-<div>def navigate_to_login_page(browser):</div>
-<div>&nbsp; &nbsp; login_page = LoginPage(browser)</div>
-<div>&nbsp; &nbsp; login_page.goto("https://www.saucedemo.com/v1/")</div>
-<br />
-<div>@when("the user logs in with valid credentials")</div>
-<div>def user_logs_in(browser):</div>
-<div>&nbsp; &nbsp; login_page = LoginPage(browser)</div>
-<div>&nbsp; &nbsp; login_page.login("standard_user", "secret_sauce")</div>
-<br />
-<div>@when("the user adds an item to the cart")</div>
-<div>def add_item_to_cart(browser):</div>
-<div>&nbsp; &nbsp; inventory_page = InventoryPage(browser)</div>
-<div>&nbsp; &nbsp; inventory_page.add_item_to_cart("Sauce Labs Backpack")</div>
-<div>&nbsp; &nbsp; inventory_page.navigate_to_cart()</div>
-<br />
-<div>@when("the user proceeds to the checkout page")</div>
-<div>def proceed_to_checkout(browser):</div>
-<div>&nbsp; &nbsp; cart_page = CartPage(browser)</div>
-<div>&nbsp; &nbsp; cart_page.proceed_to_checkout()</div>
-<br />
-<div>@when("the user fills in the checkout details")</div>
-<div>def fill_checkout_details(browser):</div>
-<div>&nbsp; &nbsp; checkout_page = CheckoutPage(browser)</div>
-<div>&nbsp; &nbsp; checkout_page.complete_checkout("Easir", "Maruf", "1234")</div>
-<br />
-<div>@then("the user should complete the checkout successfully")</div>
-<div>def verify_checkout_complete(browser):</div>
-<div>&nbsp; &nbsp; assert browser.locator("text=THANK YOU FOR YOUR ORDER").is_visible()</div>
-<div>GitHub Actions (CI/CD)</div>
-<div>The project includes a GitHub Actions configuration (.github/workflows/ci.yml) to automate the test execution on every push to the repository.</div>
-<br />
-<div>To enable this:</div>
-<br />
-<div>Push your project to GitHub.</div>
-<div>Edit .github/workflows/ci.yml to adjust your Playwright setup or dependencies if necessary.</div>
-<div>The workflow will automatically run tests for every push or pull request.</div>
-<div>Sample CI Configuration (ci.yml):</div>
-<div>yaml</div>
-<br />
-<div>name: Playwright Tests</div>
-<br />
-<div>on:</div>
-<div>&nbsp; push:</div>
-<div>&nbsp; &nbsp; branches:</div>
-<div>&nbsp; &nbsp; &nbsp; - main</div>
-<div>&nbsp; pull_request:</div>
-<div>&nbsp; &nbsp; branches:</div>
-<div>&nbsp; &nbsp; &nbsp; - main</div>
-<br />
-<div>jobs:</div>
-<div>&nbsp; test:</div>
-<div>&nbsp; &nbsp; runs-on: ubuntu-latest</div>
-<br />
-<div>&nbsp; &nbsp; steps:</div>
-<div>&nbsp; &nbsp; - uses: actions/checkout@v2</div>
-<div>&nbsp; &nbsp; - name: Set up Python</div>
-<div>&nbsp; &nbsp; &nbsp; uses: actions/setup-python@v2</div>
-<div>&nbsp; &nbsp; &nbsp; with:</div>
-<div>&nbsp; &nbsp; &nbsp; &nbsp; python-version: '3.8'</div>
-<div>&nbsp; &nbsp; - name: Install dependencies</div>
-<div>&nbsp; &nbsp; &nbsp; run: |</div>
-<div>&nbsp; &nbsp; &nbsp; &nbsp; python -m venv venv</div>
-<div>&nbsp; &nbsp; &nbsp; &nbsp; source venv/bin/activate</div>
-<div>&nbsp; &nbsp; &nbsp; &nbsp; pip install -r requirements.txt</div>
-<div>&nbsp; &nbsp; &nbsp; &nbsp; playwright install</div>
-<div>&nbsp; &nbsp; - name: Run Playwright tests</div>
-<div>&nbsp; &nbsp; &nbsp; run: |</div>
-<div>&nbsp; &nbsp; &nbsp; &nbsp; source venv/bin/activate</div>
-<div>&nbsp; &nbsp; &nbsp; &nbsp; pytest --headed --alluredir=allure-results</div>
-<div>&nbsp; &nbsp; - name: Upload Allure results</div>
-<div>&nbsp; &nbsp; &nbsp; uses: actions/upload-artifact@v2</div>
-<div>&nbsp; &nbsp; &nbsp; with:</div>
-<div>&nbsp; &nbsp; &nbsp; &nbsp; name: allure-results</div>
-<div>&nbsp; &nbsp; &nbsp; &nbsp; path: allure-results</div>
-<br /><br /><br />
-<div>#Running Tests in Parallel</div>
-<div>To run tests in parallel, you can use the pytest-xdist plugin:</div>
-<br /><br /><br />
-<div>pip install pytest-xdist</div>
-<div>pytest -n &lt;number_of_processes&gt;</div>
-<div>For example:</div>
-<br /><br /><br />
-<div>pytest -n 4 &nbsp;# Runs the tests in parallel using 4 processes</div>
-<div>Code Quality (Optional)</div>
-<div>For code quality, you can integrate a linter like ESLint for JavaScript/TypeScript files or flake8 for Python files.</div>
-<br />
-<div>#Example .eslintrc.js configuration for Playwright projects:</div>
-<br /><br />
-<div>module.exports = {</div>
-<div>&nbsp; &nbsp; "env": {</div>
-<div>&nbsp; &nbsp; &nbsp; &nbsp; "browser": true,</div>
-<div>&nbsp; &nbsp; &nbsp; &nbsp; "es2021": true</div>
-<div>&nbsp; &nbsp; },</div>
-<div>&nbsp; &nbsp; "extends": "eslint:recommended",</div>
-<div>&nbsp; &nbsp; "parserOptions": {</div>
-<div>&nbsp; &nbsp; &nbsp; &nbsp; "ecmaVersion": 12,</div>
-<div>&nbsp; &nbsp; &nbsp; &nbsp; "sourceType": "module"</div>
-<div>&nbsp; &nbsp; },</div>
-<div>&nbsp; &nbsp; "rules": {</div>
-<div>&nbsp; &nbsp; &nbsp; &nbsp; "no-unused-vars": "warn",</div>
-<div>&nbsp; &nbsp; &nbsp; &nbsp; "no-console": "off"</div>
-<div>&nbsp; &nbsp; }</div>
-<div>};</div>
-<div>Contributors</div>
-<div>@khause</div>
-<div>@Tosinfamzy</div>
-<div>@ChrisSargent</div>
-<div>License</div>
-<div>This project is licensed under the MIT License.</div>
+<h1>Playwright E2E Test Suite with BDD (Cucumber)</h1>
+<h2>Project Overview</h2>
+<p>This project is an end-to-end test automation suite for the "SauceDemo" website (<a href="https://www.saucedemo.com/v1/" target="_new" rel="noopener">https://www.saucedemo.com/v1/</a>), developed using Playwright in Python. The test suite follows the <strong>Page Object Model (POM)</strong> design pattern and integrates <strong>Behavioral Driven Development (BDD)</strong> with <strong>Cucumber</strong> using <code>pytest-bdd</code>.</p>
+<p>Key features include:</p>
+<ul>
+<li><strong>Page Object Model (POM)</strong> for scalable and maintainable test automation.</li>
+<li><strong>Behavior Driven Development (BDD)</strong> using <code>pytest-bdd</code> for human-readable tests.</li>
+<li>Integration with GitHub Actions for <strong>Continuous Integration (CI)</strong>.</li>
+<li><strong>Allure Reporting</strong> for test results.</li>
+</ul>
+<h3>Scenarios Covered:</h3>
+<ol>
+<li>User login</li>
+<li>Adding items to the cart</li>
+<li>Verifying cart contents</li>
+<li>Completing the checkout process</li>
+</ol>
+<h2>Project Structure</h2>
+<div class="dark bg-gray-950 contain-inline-size rounded-md border-[0.5px] border-token-border-medium relative">
+<div class="flex items-center text-token-text-secondary bg-token-main-surface-secondary px-4 py-2 text-xs font-sans justify-between rounded-t-md h-9">plaintext</div>
+<div class="sticky top-9 md:top-[5.75rem]">
+<div class="absolute bottom-0 right-2 flex h-9 items-center">
+<div class="flex items-center rounded bg-token-main-surface-secondary px-2 font-sans text-xs text-token-text-secondary"><span class="" data-state="closed"><button class="flex gap-1 items-center py-1">Copy code</button></span></div>
 </div>
+</div>
+<div class="overflow-y-auto p-4" dir="ltr"><code class="!whitespace-pre hljs language-plaintext">playwright-test-suite/ ├── features/ # Gherkin feature files for BDD │ ├── checkout.feature # Feature file for the checkout process ├── steps/ # Step definition files for feature steps │ ├── checkout_steps.py # Step definitions for the checkout feature ├── pages/ # Page Object Model classes │ ├── base_page.py # BasePage class for shared methods │ ├── login_page.py # Page class for login functionality │ ├── inventory_page.py # Page class for inventory actions │ ├── cart_page.py # Page class for cart actions │ └── checkout_page.py # Page class for the checkout process ├── tests/ # Optional: Additional test scripts │ └── test_checkout.py # Example standalone test without BDD ├── .github/ # GitHub Actions CI configuration │ └── workflows/ │ └── ci.yml # CI configuration to run tests on push ├── allure-results/ # Directory for storing Allure reports ├── README.md # This README file ├── pytest.ini # pytest configuration file ├── requirements.txt # Python dependencies └── conftest.py # Pytest configuration for Playwright </code></div>
+</div>
+<h2>Prerequisites</h2>
+<p>Ensure that the following tools are installed on your system:</p>
+<ul>
+<li><strong>Python 3.7+</strong></li>
+<li><strong>Node.js</strong> (for Playwright dependencies)</li>
+<li><strong>pip</strong> (Python package manager)</li>
+</ul>
+<p>Install Playwright&rsquo;s browser binaries:</p>
+<div class="dark bg-gray-950 contain-inline-size rounded-md border-[0.5px] border-token-border-medium relative">
+<div class="flex items-center text-token-text-secondary bg-token-main-surface-secondary px-4 py-2 text-xs font-sans justify-between rounded-t-md h-9">bash</div>
+<div class="sticky top-9 md:top-[5.75rem]">
+<div class="absolute bottom-0 right-2 flex h-9 items-center">
+<div class="flex items-center rounded bg-token-main-surface-secondary px-2 font-sans text-xs text-token-text-secondary"><span class="" data-state="closed"><button class="flex gap-1 items-center py-1">Copy code</button></span></div>
+</div>
+</div>
+<div class="overflow-y-auto p-4" dir="ltr"><code class="!whitespace-pre hljs language-bash">playwright install </code></div>
+</div>
+<h2>Installation</h2>
+<ol>
+<li>
+<p><strong>Clone the repository</strong>:</p>
+<div class="dark bg-gray-950 contain-inline-size rounded-md border-[0.5px] border-token-border-medium relative">
+<div class="flex items-center text-token-text-secondary bg-token-main-surface-secondary px-4 py-2 text-xs font-sans justify-between rounded-t-md h-9">bash</div>
+<div class="sticky top-9 md:top-[5.75rem]">
+<div class="absolute bottom-0 right-2 flex h-9 items-center">
+<div class="flex items-center rounded bg-token-main-surface-secondary px-2 font-sans text-xs text-token-text-secondary"><span class="" data-state="closed"><button class="flex gap-1 items-center py-1">Copy code</button></span></div>
+</div>
+</div>
+<div class="overflow-y-auto p-4" dir="ltr"><code class="!whitespace-pre hljs language-bash">git <span class="hljs-built_in">clone</span> &lt;repository-url&gt; <span class="hljs-built_in">cd</span> playwright-test-suite </code></div>
+</div>
+</li>
+<li>
+<p><strong>Set up a virtual environment</strong>:</p>
+<p>On macOS/Linux:</p>
+<div class="dark bg-gray-950 contain-inline-size rounded-md border-[0.5px] border-token-border-medium relative">
+<div class="flex items-center text-token-text-secondary bg-token-main-surface-secondary px-4 py-2 text-xs font-sans justify-between rounded-t-md h-9">bash</div>
+<div class="sticky top-9 md:top-[5.75rem]">
+<div class="absolute bottom-0 right-2 flex h-9 items-center">
+<div class="flex items-center rounded bg-token-main-surface-secondary px-2 font-sans text-xs text-token-text-secondary"><span class="" data-state="closed"><button class="flex gap-1 items-center py-1">Copy code</button></span></div>
+</div>
+</div>
+<div class="overflow-y-auto p-4" dir="ltr"><code class="!whitespace-pre hljs language-bash">python3 -m venv venv <span class="hljs-built_in">source</span> venv/bin/activate </code></div>
+</div>
+<p>On Windows:</p>
+<div class="dark bg-gray-950 contain-inline-size rounded-md border-[0.5px] border-token-border-medium relative">
+<div class="flex items-center text-token-text-secondary bg-token-main-surface-secondary px-4 py-2 text-xs font-sans justify-between rounded-t-md h-9">bash</div>
+<div class="sticky top-9 md:top-[5.75rem]">
+<div class="absolute bottom-0 right-2 flex h-9 items-center">
+<div class="flex items-center rounded bg-token-main-surface-secondary px-2 font-sans text-xs text-token-text-secondary"><span class="" data-state="closed"><button class="flex gap-1 items-center py-1">Copy code</button></span></div>
+</div>
+</div>
+<div class="overflow-y-auto p-4" dir="ltr"><code class="!whitespace-pre hljs language-bash">python -m venv venv venv\Scripts\activate </code></div>
+</div>
+</li>
+<li>
+<p><strong>Install dependencies</strong>:</p>
+<div class="dark bg-gray-950 contain-inline-size rounded-md border-[0.5px] border-token-border-medium relative">
+<div class="flex items-center text-token-text-secondary bg-token-main-surface-secondary px-4 py-2 text-xs font-sans justify-between rounded-t-md h-9">bash</div>
+<div class="sticky top-9 md:top-[5.75rem]">
+<div class="absolute bottom-0 right-2 flex h-9 items-center">
+<div class="flex items-center rounded bg-token-main-surface-secondary px-2 font-sans text-xs text-token-text-secondary"><span class="" data-state="closed"><button class="flex gap-1 items-center py-1">Copy code</button></span></div>
+</div>
+</div>
+<div class="overflow-y-auto p-4" dir="ltr"><code class="!whitespace-pre hljs language-bash">pip install -r requirements.txt </code></div>
+</div>
+</li>
+<li>
+<p><strong>Install Playwright browsers</strong>:</p>
+<div class="dark bg-gray-950 contain-inline-size rounded-md border-[0.5px] border-token-border-medium relative">
+<div class="flex items-center text-token-text-secondary bg-token-main-surface-secondary px-4 py-2 text-xs font-sans justify-between rounded-t-md h-9">bash</div>
+<div class="sticky top-9 md:top-[5.75rem]">
+<div class="absolute bottom-0 right-2 flex h-9 items-center">
+<div class="flex items-center rounded bg-token-main-surface-secondary px-2 font-sans text-xs text-token-text-secondary"><span class="" data-state="closed"><button class="flex gap-1 items-center py-1">Copy code</button></span></div>
+</div>
+</div>
+<div class="overflow-y-auto p-4" dir="ltr"><code class="!whitespace-pre hljs language-bash">playwright install </code></div>
+</div>
+</li>
+</ol>
+<h2>Running the Test Suite</h2>
+<h3>Run all tests with BDD:</h3>
+<p>To run the full test suite using BDD and Cucumber (via <code>pytest-bdd</code>):</p>
+<div class="dark bg-gray-950 contain-inline-size rounded-md border-[0.5px] border-token-border-medium relative">
+<div class="flex items-center text-token-text-secondary bg-token-main-surface-secondary px-4 py-2 text-xs font-sans justify-between rounded-t-md h-9">bash</div>
+<div class="sticky top-9 md:top-[5.75rem]">
+<div class="absolute bottom-0 right-2 flex h-9 items-center">
+<div class="flex items-center rounded bg-token-main-surface-secondary px-2 font-sans text-xs text-token-text-secondary"><span class="" data-state="closed"><button class="flex gap-1 items-center py-1">Copy code</button></span></div>
+</div>
+</div>
+<div class="overflow-y-auto p-4" dir="ltr"><code class="!whitespace-pre hljs language-bash">pytest -v </code></div>
+</div>
+<h3>Run specific feature file:</h3>
+<p>To run a specific feature file, use:</p>
+<div class="dark bg-gray-950 contain-inline-size rounded-md border-[0.5px] border-token-border-medium relative">
+<div class="flex items-center text-token-text-secondary bg-token-main-surface-secondary px-4 py-2 text-xs font-sans justify-between rounded-t-md h-9">bash</div>
+<div class="sticky top-9 md:top-[5.75rem]">
+<div class="absolute bottom-0 right-2 flex h-9 items-center">
+<div class="flex items-center rounded bg-token-main-surface-secondary px-2 font-sans text-xs text-token-text-secondary"><span class="" data-state="closed"><button class="flex gap-1 items-center py-1">Copy code</button></span></div>
+</div>
+</div>
+<div class="overflow-y-auto p-4" dir="ltr"><code class="!whitespace-pre hljs language-bash">pytest -v features/checkout.feature </code></div>
+</div>
+<h3>Run with Allure Reporting:</h3>
+<p>To generate an Allure report:</p>
+<ol>
+<li>
+<p>Run the tests and generate the report data:</p>
+<div class="dark bg-gray-950 contain-inline-size rounded-md border-[0.5px] border-token-border-medium relative">
+<div class="flex items-center text-token-text-secondary bg-token-main-surface-secondary px-4 py-2 text-xs font-sans justify-between rounded-t-md h-9">bash</div>
+<div class="sticky top-9 md:top-[5.75rem]">
+<div class="absolute bottom-0 right-2 flex h-9 items-center">
+<div class="flex items-center rounded bg-token-main-surface-secondary px-2 font-sans text-xs text-token-text-secondary"><span class="" data-state="closed"><button class="flex gap-1 items-center py-1">Copy code</button></span></div>
+</div>
+</div>
+<div class="overflow-y-auto p-4" dir="ltr"><code class="!whitespace-pre hljs language-bash">pytest --alluredir=allure-results </code></div>
+</div>
+</li>
+<li>
+<p>Serve the report in a local web server:</p>
+<div class="dark bg-gray-950 contain-inline-size rounded-md border-[0.5px] border-token-border-medium relative">
+<div class="flex items-center text-token-text-secondary bg-token-main-surface-secondary px-4 py-2 text-xs font-sans justify-between rounded-t-md h-9">bash</div>
+<div class="sticky top-9 md:top-[5.75rem]">
+<div class="absolute bottom-0 right-2 flex h-9 items-center">
+<div class="flex items-center rounded bg-token-main-surface-secondary px-2 font-sans text-xs text-token-text-secondary"><span class="" data-state="closed"><button class="flex gap-1 items-center py-1">Copy code</button></span></div>
+</div>
+</div>
+<div class="overflow-y-auto p-4" dir="ltr"><code class="!whitespace-pre hljs language-bash">allure serve allure-results </code></div>
+</div>
+</li>
+</ol>
+<h2>Writing Your Own Feature Files</h2>
+<h3>Example Feature File (<code>checkout.feature</code>):</h3>
+<div class="dark bg-gray-950 contain-inline-size rounded-md border-[0.5px] border-token-border-medium relative">
+<div class="flex items-center text-token-text-secondary bg-token-main-surface-secondary px-4 py-2 text-xs font-sans justify-between rounded-t-md h-9">gherkin</div>
+<div class="sticky top-9 md:top-[5.75rem]">
+<div class="absolute bottom-0 right-2 flex h-9 items-center">
+<div class="flex items-center rounded bg-token-main-surface-secondary px-2 font-sans text-xs text-token-text-secondary"><span class="" data-state="closed"><button class="flex gap-1 items-center py-1">Copy code</button></span></div>
+</div>
+</div>
+<div class="overflow-y-auto p-4" dir="ltr"><code class="!whitespace-pre hljs language-gherkin">Feature: Checkout an item Scenario: Checkout a single item Given the user is on the login page When the user logs in with valid credentials And the user adds an item to the cart And the user proceeds to the checkout page And the user fills in the checkout details Then the user should complete the checkout successfully </code></div>
+</div>
+<p>Place all feature files in the <code>features/</code> directory.</p>
+<h3>Step Definitions</h3>
+<p>The corresponding step definitions should be placed in the <code>steps/</code> directory. Each step in the feature file will map to a Python function in a step definition file (e.g., <code>checkout_steps.py</code>).</p>
+<div class="dark bg-gray-950 contain-inline-size rounded-md border-[0.5px] border-token-border-medium relative">
+<div class="flex items-center text-token-text-secondary bg-token-main-surface-secondary px-4 py-2 text-xs font-sans justify-between rounded-t-md h-9">python</div>
+<div class="sticky top-9 md:top-[5.75rem]">
+<div class="absolute bottom-0 right-2 flex h-9 items-center">
+<div class="flex items-center rounded bg-token-main-surface-secondary px-2 font-sans text-xs text-token-text-secondary"><span class="" data-state="closed"><button class="flex gap-1 items-center py-1">Copy code</button></span></div>
+</div>
+</div>
+<div class="overflow-y-auto p-4" dir="ltr"><code class="!whitespace-pre hljs language-python"><span class="hljs-keyword">import</span> pytest <span class="hljs-keyword">from</span> pytest_bdd <span class="hljs-keyword">import</span> given, when, then <span class="hljs-keyword">from</span> pages.login_page <span class="hljs-keyword">import</span> LoginPage <span class="hljs-keyword">from</span> pages.inventory_page <span class="hljs-keyword">import</span> InventoryPage <span class="hljs-keyword">from</span> pages.cart_page <span class="hljs-keyword">import</span> CartPage <span class="hljs-keyword">from</span> pages.checkout_page <span class="hljs-keyword">import</span> CheckoutPage <span class="hljs-comment"># Fixture for browser setup</span> <span class="hljs-meta">@pytest.fixture</span> <span class="hljs-keyword">def</span> <span class="hljs-title function_">browser</span>(<span class="hljs-params">playwright</span>): browser = playwright.chromium.launch(headless=<span class="hljs-literal">False</span>) context = browser.new_context() page = context.new_page() <span class="hljs-keyword">yield</span> page context.close() browser.close() <span class="hljs-comment"># Step Definitions</span> <span class="hljs-meta">@given(<span class="hljs-params"><span class="hljs-string">"the user is on the login page"</span></span>)</span> <span class="hljs-keyword">def</span> <span class="hljs-title function_">navigate_to_login_page</span>(<span class="hljs-params">browser</span>): login_page = LoginPage(browser) login_page.goto(<span class="hljs-string">"https://www.saucedemo.com/v1/"</span>) <span class="hljs-meta">@when(<span class="hljs-params"><span class="hljs-string">"the user logs in with valid credentials"</span></span>)</span> <span class="hljs-keyword">def</span> <span class="hljs-title function_">user_logs_in</span>(<span class="hljs-params">browser</span>): login_page = LoginPage(browser) login_page.login(<span class="hljs-string">"standard_user"</span>, <span class="hljs-string">"secret_sauce"</span>) <span class="hljs-meta">@when(<span class="hljs-params"><span class="hljs-string">"the user adds an item to the cart"</span></span>)</span> <span class="hljs-keyword">def</span> <span class="hljs-title function_">add_item_to_cart</span>(<span class="hljs-params">browser</span>): inventory_page = InventoryPage(browser) inventory_page.add_item_to_cart(<span class="hljs-string">"Sauce Labs Backpack"</span>) inventory_page.navigate_to_cart() <span class="hljs-meta">@when(<span class="hljs-params"><span class="hljs-string">"the user proceeds to the checkout page"</span></span>)</span> <span class="hljs-keyword">def</span> <span class="hljs-title function_">proceed_to_checkout</span>(<span class="hljs-params">browser</span>): cart_page = CartPage(browser) cart_page.proceed_to_checkout() <span class="hljs-meta">@when(<span class="hljs-params"><span class="hljs-string">"the user fills in the checkout details"</span></span>)</span> <span class="hljs-keyword">def</span> <span class="hljs-title function_">fill_checkout_details</span>(<span class="hljs-params">browser</span>): checkout_page = CheckoutPage(browser) checkout_page.complete_checkout(<span class="hljs-string">"John"</span>, <span class="hljs-string">"Doe"</span>, <span class="hljs-string">"12345"</span>) <span class="hljs-meta">@then(<span class="hljs-params"><span class="hljs-string">"the user should complete the checkout successfully"</span></span>)</span> <span class="hljs-keyword">def</span> <span class="hljs-title function_">verify_checkout_complete</span>(<span class="hljs-params">browser</span>): <span class="hljs-keyword">assert</span> browser.locator(<span class="hljs-string">"text=THANK YOU FOR YOUR ORDER"</span>).is_visible() </code></div>
+</div>
+<h2>GitHub Actions (CI/CD)</h2>
+<p>The project includes a GitHub Actions configuration (<code>.github/workflows/ci.yml</code>) to automate the test execution on every push to the repository.</p>
+<p>To enable this:</p>
+<ol>
+<li>Push your project to GitHub.</li>
+<li>Edit <code>.github/workflows/ci.yml</code> to adjust your Playwright setup or dependencies if necessary.</li>
+<li>The workflow will automatically run tests for every push or pull request.</li>
+</ol>
+<h3>Sample CI Configuration (<code>ci.yml</code>):</h3>
+<div class="dark bg-gray-950 contain-inline-size rounded-md border-[0.5px] border-token-border-medium relative">
+<div class="flex items-center text-token-text-secondary bg-token-main-surface-secondary px-4 py-2 text-xs font-sans justify-between rounded-t-md h-9">yaml</div>
+<div class="sticky top-9 md:top-[5.75rem]">
+<div class="absolute bottom-0 right-2 flex h-9 items-center">
+<div class="flex items-center rounded bg-token-main-surface-secondary px-2 font-sans text-xs text-token-text-secondary"><span class="" data-state="closed"><button class="flex gap-1 items-center py-1">Copy code</button></span></div>
+</div>
+</div>
+<div class="overflow-y-auto p-4" dir="ltr"><code class="!whitespace-pre hljs language-yaml"><span class="hljs-attr">name:</span> <span class="hljs-string">Playwright</span> <span class="hljs-string">Tests</span> <span class="hljs-attr">on:</span> <span class="hljs-attr">push:</span> <span class="hljs-attr">branches:</span> <span class="hljs-bullet">-</span> <span class="hljs-string">main</span> <span class="hljs-attr">pull_request:</span> <span class="hljs-attr">branches:</span> <span class="hljs-bullet">-</span> <span class="hljs-string">main</span> <span class="hljs-attr">jobs:</span> <span class="hljs-attr">test:</span> <span class="hljs-attr">runs-on:</span> <span class="hljs-string">ubuntu-latest</span> <span class="hljs-attr">steps:</span> <span class="hljs-bullet">-</span> <span class="hljs-attr">uses:</span> <span class="hljs-string">actions/checkout@v2</span> <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Set</span> <span class="hljs-string">up</span> <span class="hljs-string">Python</span> <span class="hljs-attr">uses:</span> <span class="hljs-string">actions/setup-python@v2</span> <span class="hljs-attr">with:</span> <span class="hljs-attr">python-version:</span> <span class="hljs-string">'3.8'</span> <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Install</span> <span class="hljs-string">dependencies</span> <span class="hljs-attr">run:</span> <span class="hljs-string">| python -m venv venv source venv/bin/activate pip install -r requirements.txt playwright install </span> <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Run</span> <span class="hljs-string">Playwright</span> <span class="hljs-string">tests</span> <span class="hljs-attr">run:</span> <span class="hljs-string">| source venv/bin/activate pytest --headed --alluredir=allure-results </span> <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Upload</span> <span class="hljs-string">Allure</span> <span class="hljs-string">results</span> <span class="hljs-attr">uses:</span> <span class="hljs-string">actions/upload-artifact@v2</span> <span class="hljs-attr">with:</span> <span class="hljs-attr">name:</span> <span class="hljs-string">allure-results</span> <span class="hljs-attr">path:</span> <span class="hljs-string">allure-results</span> </code></div>
+</div>
+<h2>Running Tests in Parallel</h2>
+<p>To run tests in parallel, you can use the <code>pytest-xdist</code> plugin:</p>
+<div class="dark bg-gray-950 contain-inline-size rounded-md border-[0.5px] border-token-border-medium relative">
+<div class="flex items-center text-token-text-secondary bg-token-main-surface-secondary px-4 py-2 text-xs font-sans justify-between rounded-t-md h-9">bash</div>
+<div class="sticky top-9 md:top-[5.75rem]">
+<div class="absolute bottom-0 right-2 flex h-9 items-center">
+<div class="flex items-center rounded bg-token-main-surface-secondary px-2 font-sans text-xs text-token-text-secondary"><span class="" data-state="closed"><button class="flex gap-1 items-center py-1">Copy code</button></span></div>
+</div>
+</div>
+<div class="overflow-y-auto p-4" dir="ltr"><code class="!whitespace-pre hljs language-bash">pip install pytest-xdist pytest -n &lt;number_of_processes&gt; </code></div>
+</div>
+<p>For example:</p>
+<div class="dark bg-gray-950 contain-inline-size rounded-md border-[0.5px] border-token-border-medium relative">
+<div class="flex items-center text-token-text-secondary bg-token-main-surface-secondary px-4 py-2 text-xs font-sans justify-between rounded-t-md h-9">bash</div>
+<div class="sticky top-9 md:top-[5.75rem]">
+<div class="absolute bottom-0 right-2 flex h-9 items-center">
+<div class="flex items-center rounded bg-token-main-surface-secondary px-2 font-sans text-xs text-token-text-secondary"><span class="" data-state="closed"><button class="flex gap-1 items-center py-1">Copy code</button></span></div>
+</div>
+</div>
+<div class="overflow-y-auto p-4" dir="ltr"><code class="!whitespace-pre hljs language-bash">pytest -n 4 <span class="hljs-comment"># Runs the tests in parallel using 4 processes</span> </code></div>
+</div>
+<h2>Code Quality (Optional)</h2>
+<p>For code quality, you can integrate a linter like <code>ESLint</code> for JavaScript/TypeScript files or <code>flake8</code> for Python files.</p>
+<h3>Example <code>.eslintrc.js</code> configuration for Playwright projects:</h3>
+<div class="dark bg-gray-950 contain-inline-size rounded-md border-[0.5px] border-token-border-medium relative">
+<div class="flex items-center text-token-text-secondary bg-token-main-surface-secondary px-4 py-2 text-xs font-sans justify-between rounded-t-md h-9">javascript</div>
+<div class="sticky top-9 md:top-[5.75rem]">
+<div class="absolute bottom-0 right-2 flex h-9 items-center">
+<div class="flex items-center rounded bg-token-main-surface-secondary px-2 font-sans text-xs text-token-text-secondary"><span class="" data-state="closed"><button class="flex gap-1 items-center py-1">Copy code</button></span></div>
+</div>
+</div>
+<div class="overflow-y-auto p-4" dir="ltr"><code class="!whitespace-pre hljs language-javascript"><span class="hljs-variable language_">module</span>.<span class="hljs-property">exports</span> = { <span class="hljs-string">"env"</span>: { <span class="hljs-string">"browser"</span>: <span class="hljs-literal">true</span>, <span class="hljs-string">"es2021"</span>: <span class="hljs-literal">true</span> }, <span class="hljs-string">"extends"</span>: <span class="hljs-string">"eslint:recommended"</span>, <span class="hljs-string">"parserOptions"</span>: { <span class="hljs-string">"ecmaVersion"</span>: <span class="hljs-number">12</span>, <span class="hljs-string">"sourceType"</span>: <span class="hljs-string">"module"</span> }, <span class="hljs-string">"rules"</span>: { <span class="hljs-string">"no-unused-vars"</span>: <span class="hljs-string">"warn"</span>, <span class="hljs-string">"no-console"</span>: <span class="hljs-string">"off"</span> } }; </code></div>
+</div>
+<h2>Contributors</h2>
+<ul>
+<li>@khause</li>
+<li>@Tosinfamzy</li>
+<li>@ChrisSargent</li>
+</ul>
+<h2>License</h2>
+<p>This project is licensed under the MIT License.</p>
+<p>&nbsp;</p>
